@@ -1,19 +1,13 @@
 package org.example;
 
-import org.example.config.PostgreSQLConnection;
+import org.example.model.User;
+import org.example.repository.UserRepository;
 
-import java.sql.Connection;
+public class App {
+    public static void main(String[] args) {
+        User user = new User("Jane", 18, "067.872.827.89", "45 99735287");
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        Connection conn = PostgreSQLConnection.getConnection();
-
-        PostgreSQLConnection.closeConnection(conn);
+        UserRepository.insertUser(user);
     }
 }
+
